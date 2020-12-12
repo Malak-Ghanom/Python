@@ -6,7 +6,7 @@
 | Course Introduction                                         | NA                           |              NA              |
 | Development Environment                                     | NA                           |              NA              |
 | **Week 2 - Python Basics and Data Structures**              |
-| Python Programming Basics                                   | [CA01](./HTU/python/Class_Assignment/CA01) |              NA              |
+| Python Programming Basics                                   | [CA01](./W2/S2/CA02/CA01.md) |              NA              |
 | Strings and Lists                                           | [CA02](./W2/S2/CA02/CA02.md) |              NA              |
 | Tuples, Sets, Dictionaries                                  | [CA03](./W2/S3/CA03/CA03.md) | [PA01](./W2/S3/PA01/PA01.md) |
 | **Week 3 - Flow Control and Functions**                     |
