@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Personal Information </title>
+</head>
+<body>
+    <h2 style="vertical-align: center; text-align: center;">Personal Information</h2>
+    
+<div>
+    
+    <table>
+        {% for project in me.projects %}
+           <tr>
+                <th> {{ project.name }} : {{project.description}} : {{project.tags}} </th>
+           </tr>
+        {% endfor %}
+        </table>
+  </div>
+
+</body>
+
+
+</html>

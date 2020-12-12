@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume</title>
+</head>
+
+<body>
+<h4 style="vertical-align: center; text-align: right;">{{time}}</h4>
+
+<h2 style="vertical-align: center; text-align: center;">{{name}}</h2>
+<h4 style="vertical-align: center; text-align: center;">{{description}}</h4>
+
+<div>    
+    <ul>
+      {% for menu_item in menu %}
+      <li><a href="{{ menu_item.url }}">{{ menu_item.title | title}}</a></li>
+      {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>

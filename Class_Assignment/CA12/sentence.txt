@@ -1,0 +1,5 @@
+hi
+its malak ghanom
+its my first time on python 
+and using IO opeeration
+i hope to have fun
