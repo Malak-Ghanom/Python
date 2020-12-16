@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1>Welcome to our Simple Calculator!</h1>
+
+<div>
+
+        
+<form method="POST">
+    <div>
+        <label for="number1">First Number:</label>
+        <input type="number" id="number1" name="n1" placeholder="Enter your first value"
+            required="" style="width:fit-content">
+    </div>
+    <div>
+        <label for="number2">Second Number:</label>
+        <input type="number" id="number2" name="n2" placeholder="Enter your second value"
+            required="" style="width:fit-content">
+    </div>
+    <div>
+        <div>
+            <button type="reset">Clear</button>
+        </div>
+        <hr>
+        {% for button in buttons%}
+        <button formaction="{{button.action}}" type="submit"> {{button.title}} </button>
+        {% endfor %}
+    </div>
+</form>
+</div>
+
+{% endblock %}
