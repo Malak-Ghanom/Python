@@ -169,12 +169,12 @@ def log():
 def ln():
     
     # read and cast the values from the form
-    number1 = int(request.form['n1'])
-    number2 = int(request.form['n2'])
+    number1 = float(request.form['n1'])
+    number2 = float(request.form['n2'])
 
     # absolute the values
     e = 2.718281
-    result= math.log(e, 10)
+    result= math.log(number1,e)
     
     # redirect the user to the result page
     return redirect(url_for("result", answer = result,n1=number1,n2=number2 , operation = 'ln'))
