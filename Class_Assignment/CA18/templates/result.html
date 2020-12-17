@@ -8,19 +8,39 @@
     {% if operation == 'add' %}
     <h2><b> {{n1}} + {{n2}} = </b>{{result}}</h2>
     {% elif operation == 'subtract' %}
-    <h2><b> X - Y = </b>{{result}}</h2>
+    <h2><b> {{n1}} - {{n2}} = </b>{{result}}</h2>
     {% elif operation == 'divide' %}
-    <h2><b> X / Y = </b>{{result}}</h2>
+    <h2><b> {{n1}} / {{n2}} = </b>{{result}}</h2>
     {% elif operation == 'multiply' %}
-    <h2><b> X * Y = </b>{{result}}</h2>
+    <h2><b> {{n1}} * {{n2}} = </b>{{result}}</h2>
+
     {% elif operation == 'square_root' %}
-    <h2><b> sqrt(X) = </b>{{result}}</h2>
+    <h2><b> sqrt({{n1}}) = </b>{{result}}</h2>
+
     {% elif operation == 'cube' %}
-    <h2><b> cube(X) = </b>{{result}}</h2>
-    {% elif operation == 'angles' %}
-    <h2><b> sin(X) = </b>{{result}}</h2>
+    <h2><b> cube({{n1}}) = </b>{{result}}</h2>
+
+    {% elif operation == 'sin' %}
+    <h2><b> sin({{n1}}) = </b>{{result}}</h2>
+    {% elif operation == 'cos' %}
+    <h2><b> cos({{n1}}) = </b>{{result}}</h2>
+    {% elif operation == 'tan' %}
+    <h2><b> tan({{n1}}) = </b>{{result}}</h2>
+
     {% elif operation == 'absolute' %}
-    <h2><b> abs(X) = </b>{{result}}</h2>
+    <h2><b> abs({{n1}}) = </b>{{result}}</h2>
+
+    {% elif operation == 'x^y' %}
+    <h2><b> {{n1}}^{{n2}} = </b>{{result}}</h2>
+
+    {% elif operation == 'log' %}
+    <h2><b> log{{n1}} = </b>{{result}}</h2>
+
+    {% elif operation == 'ln' %}
+    <h2><b> ln{{n1}} = </b>{{result}}</h2>
+    
+    {% elif operation == 'exp' %}
+    <h2><b> e^({{n1}}) = </b>{{result}}</h2>
     {% else %}
     <h2><b>I don't know how to do '{operation}'. Try again!</b></h2>
     {% endif %}

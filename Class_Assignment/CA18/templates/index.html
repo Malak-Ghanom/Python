@@ -8,13 +8,14 @@
 
         
 <form method="POST">
+    
     <div>
-        <label for="number1">First Number:</label>
+        <label for="number1">X:</label>
         <input type="number" id="number1" name="n1" placeholder="Enter your first value"
             required="" style="width:fit-content">
     </div>
     <div>
-        <label for="number2">Second Number:</label>
+        <label for="number2">Y:</label>
         <input type="number" id="number2" name="n2" placeholder="Enter your second value"
             required="" style="width:fit-content">
     </div>
@@ -23,10 +24,28 @@
             <button type="reset">Clear</button>
         </div>
         <hr>
+        {% for number in range(1,4)%}
+        <button type="submit"> {{number}} </button>
+        {% endfor %}
+<br>
+
+{% for number in range(4,7)%}
+<button type="submit"> {{number}} </button>
+{% endfor %}
+<br>
+
+{% for number in range(7,10)%}
+<button type="submit"> {{number}} </button>
+{% endfor %}
+<br>
+<button style="width:78px;" type="submit"> 0 </button>
+<br>
+<br>
         {% for button in buttons%}
-        <button formaction="{{button.action}}" type="submit"> {{button.title}} </button>
+        <button formaction="{{button.action}}" type="submit"> {{button.title}}</button>
         {% endfor %}
     </div>
+    
 </form>
 </div>
 

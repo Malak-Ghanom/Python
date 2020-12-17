@@ -82,22 +82,50 @@ def cube():
     return redirect(url_for("result", answer = result,n1=number1,n2=number2 , operation = 'cube'))
 
 
-
-@app.route("/angle", methods=['POST'])
-def angle_sct():
+@app.route("/x^y", methods=['POST'])
+def x_pow_y():
     
     # read and cast the values from the form
     number1 = int(request.form['n1'])
     number2 = int(request.form['n2'])
 
     # square the values
-    sin = math.sin(math.radians(30))
-    # cos = math.cos(number1)
-    # tan = math.tan(number1)
-    
-    result = int(sin)
+    result = number1 ** number2
     # redirect the user to the result page
-    return redirect(url_for("result", answer = result,n1=number1,n2=number2 , operation = 'angle'))
+    return redirect(url_for("result", answer = result,n1=number1,n2=number2 , operation = 'x^y'))
+
+
+@app.route("/sin", methods=['POST'])
+def sin():    
+    # read and cast the values from the form
+    number1 = int(request.form['n1'])
+    number2 = float(request.form['n2'])
+    
+    sin=math.sin(math.radians(number1))
+    # redirect the user to the result page
+    return render_template("result.html", n1 = number1, n2= number2, operation = 'sin', result=sin)
+
+@app.route("/cos", methods=['POST'])
+def cos():    
+    # read and cast the values from the form
+    number1 = int(request.form['n1'])
+    number2 = float(request.form['n2'])
+
+    cos=math.cos(math.radians(number1))
+    # redirect the user to the result page
+    return render_template("result.html", n1 = number1, n2= number2, operation = 'cos', result=cos)
+
+@app.route("/tan", methods=['POST'])
+def tan():    
+    # read and cast the values from the form
+    number1 = int(request.form['n1'])
+    number2 = float(request.form['n2'])
+
+    tan=math.tan(math.radians(number1)) 
+    # redirect the user to the result page
+    return render_template("result.html", n1 = number1, n2= number2, operation = 'tan', result=tan)
+
+
 
 @app.route("/absolute", methods=['POST'])
 def absolute():
@@ -112,22 +140,70 @@ def absolute():
     return redirect(url_for("result", answer = result,n1=number1,n2=number2 , operation = 'absolute'))
 
 
+@app.route("/exp", methods=['POST'])
+def exp():
+    
+    # read and cast the values from the form
+    number1 = int(request.form['n1'])
+    number2 = int(request.form['n2'])
+
+    # absolute the values
+    result =math.exp(number1)
+    # redirect the user to the result page
+    return redirect(url_for("result", answer = result,n1=number1,n2=number2 , operation = 'exp'))
+
+
+@app.route("/log", methods=['POST'])
+def log():
+    
+    # read and cast the values from the form
+    number1 = int(request.form['n1'])
+    number2 = int(request.form['n2'])
+
+    # absolute the values
+    result =math.log10(number1)
+    # redirect the user to the result page
+    return redirect(url_for("result", answer = result,n1=number1,n2=number2 , operation = 'log'))
+
+@app.route("/ln", methods=['POST'])
+def ln():
+    
+    # read and cast the values from the form
+    number1 = int(request.form['n1'])
+    number2 = int(request.form['n2'])
+
+    # absolute the values
+    e = 2.718281
+    result= math.log(e, 10)
+    
+    # redirect the user to the result page
+    return redirect(url_for("result", answer = result,n1=number1,n2=number2 , operation = 'ln'))
+
+
+
 @app.route("/")
 def index():
     buttons = [
-        {"title":"Add", "action":url_for('add')},
-        {"title":"Subtract", "action":url_for('subtract')},
-        {"title":"Multiply", "action":url_for('multiply')},
-        {"title":"Divide two numbers", "action":url_for('divide')},
-        {"title":"Square Root", "action":url_for('square_root')},
-        {"title":"Cube", "action":url_for('cube')},
-        {",title":"Angle", "action":url_for('angle_sct')},
-        {"title":"Absolute", "action":url_for('absolute')}
+        {"title":"+", "action":url_for('add')},
+        {"title":"-", "action":url_for('subtract')},
+        {"title":"*", "action":url_for('multiply')},
+        {"title":"/", "action":url_for('divide')},
+        {"title":"√x", "action":url_for('square_root')},
+        {"title":"(x)^3", "action":url_for('cube')},
+        {"title":"|x|", "action":url_for('absolute')},
+        {"title":"x^y", "action":url_for('x_pow_y')},
+        {"title":"e^x", "action":url_for('exp')},
+        {"title":"sin(x)", "action":url_for('sin')},
+        {"title":"cos(x)", "action":url_for('cos')},
+        {"title":"tan(x)", "action":url_for('tan')},
+        {"title":"log(x)", "action":url_for('log')},
+        {"title":"Ln(x)", "action":url_for('ln')},
+        {"title":"π", "action":url_for('sin')}        
     ]
 
         # {"title":"Absolute", "action":url_for('absolute')},
     return render_template("index.html", buttons = buttons)
 
-@app.route("/result/<n1>/<n2>/<operation>/<answer>")
+@app.route("/result/<n1>/<n2>/<operation>/<float(signed=True):answer>")
 def result(n1, n2, operation, answer):
     return render_template("result.html", n1 = n1, n2= n2, operation = operation, result=answer)
